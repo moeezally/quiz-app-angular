@@ -1,0 +1,143 @@
+<app-header></app-header>
+
+<div class="container-fluid mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div
+      class="col-md-8 mb-5 p-5 border rounded mt-5"
+      style="background: rgba(0, 0, 0, 0.8)"
+    >
+      <div class="row mt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <h2 class="text-center text-white">Add New Quiz</h2>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+      <form role="form" class="form" #f="ngForm">
+        <div class="form-group mb-4 p-5" style="background: rgba(80, 80, 80, 0.7);">
+          <label class="h5 text-white" for="quiz_name"> Quiz Name <label class="inline-text text-danger" *ngIf="validationError.name">{{validationError.name}} </label></label>
+          <input
+            pInputText
+            type="text"
+            class="form-control"
+            id="quiz_name"
+            [(ngModel)]="quiz.name"
+            name="quiz_name"
+            placeholder="Enter quiz name"
+            required
+          />
+          <label class="h5 text-white mt-3" for="quiz_name"> Active </label><br>
+          <i *ngIf="!isActive" class="fa fa-toggle-off fa-3x" style="color: white;cursor: pointer;" (click)="setActive()"></i>
+          <i *ngIf="isActive" class="fa fa-toggle-on fa-3x" style="color: green;cursor: pointer;" (click)="setActive()"></i>
+
+        </div>
+        <p class="text-danger">*NOTE: Please first add the number of questions you want. You will lose the previous entered qustions if you add another question after entering data for one. </p>
+        <div
+          *ngFor="let question of questions; index as i"
+          class="form-group p-5 mb-4"
+          style="background: rgba(80, 80, 80, 0.7);"        >
+          <div class="row d-flex justify-content-between">
+            <label class="h5 text-white" for="question"> Question {{ i + 1 }} </label><br>
+            <i class="fa fa-trash-o fa-2x" style="cursor: pointer; color: red;" (click)="deleteQuestion(i)"></i>
+
+          </div>
+          <label class="h5 text-white mt-2"  for="options"> Statement </label>
+
+
+          <input
+            pInputText
+            type="text"
+            class="form-control"
+            id="question.statement"
+            [(ngModel)]="questions[i].statement"
+            name="question.statement"
+            placeholder="Enter question statement"
+            required
+          />
+          <div class="row mt-4">
+            <div class="col-md-12">
+                <label class="h5 text-white " for="options"> Options </label>
+
+              <div class="row p-3">
+
+                <div class="col-md-6 ">
+                    <label class="text-white" for="question_option_a"> Option A </label>
+                    <input
+                        pInputText
+                        type="text"
+                        class="form-control"
+                        id="question.option_a"
+                        [(ngModel)]="questions[i].optionA"
+                        name="question.option_a"
+                        placeholder="Enter option A"
+                        required
+                    />
+                </div>
+                <div class="col-md-6 ">
+                    <label class="text-white" for="question_option_b"> Option B </label>
+                    <input
+                        pInputText
+                        type="text"
+                        class="form-control"
+                        id="question.option_b"
+                        [(ngModel)]="questions[i].optionB"
+                        name="question.option_b"
+                        placeholder="Enter option B"
+                        required
+                    />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-6 ">
+                    <label class="text-white" for="question_option_c"> Option C </label>
+                    <input
+                        pInputText
+                        type="text"
+                        class="form-control"
+                        id="question.option_c"
+                        [(ngModel)]="questions[i].optionC"
+                        name="question.option_c"
+                        placeholder="Enter option C"
+                        required
+                    />
+                </div>
+                <div class="col-md-6 ">
+                    <label class="text-white" for="question_option_d"> Option D </label>
+                    <input
+                        pInputText
+                        type="text"
+                        class="form-control"
+                        id="question.option_d"
+                        [(ngModel)]="questions[i].optionD"
+                        name="question.option_d"
+                        placeholder="Enter option D"
+                        required
+                    />
+                </div>
+              </div>
+              <div class="row p-3">
+                <div class="col-md-6">   
+                    <label class="text-white " for="answer"> Answer </label>
+                  
+                    <select [id]="i" class="form-control" (change)="selectAnswer(i)">
+                        <option disabled [selected]="questions[i].answer?false:true" value="">Choose Answer</option>
+                        <option value="A" [selected]="questions[i].answer=='A'?true:false">Option A</option>
+                        <option value="B" [selected]="questions[i].answer=='B'?true:false">Option B</option>
+                        <option value="C" [selected]="questions[i].answer=='C'?true:false">Option C</option>
+                        <option value="D" [selected]="questions[i].answer=='D'?true:false">Option D</option>
+                  </select>
+                </div>
+                <div class="col-md-6"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <button class="btn btn-info btn-block mt-5 p-3 text-white" (click)="addQuestion()">Add Question</button>
+      <button class="btn btn-success btn-block mt-5 p-3 text-white" (click)="validate()">Save Quiz</button>
+
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
