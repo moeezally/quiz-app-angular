@@ -1,92 +1,115 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">		
-			<div class="row p-5" >
-				<div class="col-md-4" >
-				</div>
-				<div class="col-md-4 p-5 border rounded mt-5" style="background: rgb(255,255,255,0.8);">
-                    <h4 class="text-center mb-5">
-						SIGN UP
-					</h4>
-					<form role="form" (ngSubmit)="validate()" #f="ngForm">
-                        <div class="form-group">
-							 
-							<label class="h6" for="username">
-								Username <label class="inline-text text-danger" *ngIf="validationError.name">{{validationError.name}} </label>
-							</label>
-							<input 
-                                type="text" 
-                                class="form-control" 
-                                id="name"
-                                pInputText
-                                placeholder="Enter Username"
-                                [(ngModel)]="signupObj.name"
-                                name="name"
-                                required
-                                 />
-						</div>
-						<div class="form-group">
-							 
-							<label class="h6" for="email">
-								Email address <label class="inline-text text-danger" *ngIf="validationError.email">{{validationError.email}} </label>
-							</label>
-                            <label class="inline-text text-danger" *ngIf="validationError.emailFormat">{{validationError.emailFormat}} </label>
-							<input 
-                                pInputText 
-                                type="email" 
-                                class="form-control" 
-                                id="email"
-                                [(ngModel)]="signupObj.email"
-                                name="email"
-                                placeholder="Enter email address"
-                                required />
-						</div>
-						<div class="form-group">
-							 
-							<label class="h6" for="password">
-								Password <label class="inline-text text-danger" *ngIf="validationError.password">{{validationError.password}} </label>
-							</label>
-							<input 
-                                type="password" 
-                                class="form-control" 
-                                id="password"
-                                pInputText
-                                placeholder="Enter password"
-                                [(ngModel)]="signupObj.password"
-                                name="password"
-                                required
-                                 />
-						</div>
-                        <div class="form-group">
-							 
-							<label class="h6" for="ConfirmPassword">
-								Confirm Password <label class="inline-text text-danger" *ngIf="validationError.confirmPassword">{{validationError.confirmPassword}} </label>
-							</label>
-							<input 
-                                type="password" 
-                                class="form-control" 
-                                id="confirmPassword"
-                                pInputText
-                                placeholder="Enter password"
-                                [(ngModel)]="signupObj.confirmPassword"
-                                name="password"
-                                required
-                                 />
-                                 <label class="inline-text text-danger" *ngIf="validationError.passwordMismatch">{{validationError.passwordMismatch}} </label>
-						</div>
-						
-						
-						<button  class="btn btn-dark btn-block mt-5">
-							Sign Up
-						</button>
-					</form>
-                    <div class="mt-5 text-center">
-                        <a style="font-weight: bold;" [routerLink]="['/login']">Already have an Account? Login Here.</a>
-                    </div>
-				</div>
-				<div class="col-md-4">
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row p-5">
+        <div class="col-md-4"></div>
+        <div
+          class="col-md-4 p-5 border rounded mt-5"
+          style="background: rgb(255, 255, 255, 0.8)"
+        >
+          <h4 class="text-center mb-5">SIGN UP</h4>
+          <form role="form" (ngSubmit)="validate()" #f="ngForm">
+            <div class="form-group">
+              <label class="h6" for="username">
+                Username
+                <label
+                  class="inline-text text-danger"
+                  *ngIf="validationError.name"
+                  >{{ validationError.name }}
+                </label>
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                pInputText
+                placeholder="Enter Username"
+                [(ngModel)]="signupObj.name"
+                name="name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="h6" for="email">
+                Email address
+                <label
+                  class="inline-text text-danger"
+                  *ngIf="validationError.email"
+                  >{{ validationError.email }}
+                </label>
+              </label>
+              <label
+                class="inline-text text-danger"
+                *ngIf="validationError.emailFormat"
+                >{{ validationError.emailFormat }}
+              </label>
+              <input
+                pInputText
+                type="email"
+                class="form-control"
+                id="email"
+                [(ngModel)]="signupObj.email"
+                name="email"
+                placeholder="Enter email address"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="h6" for="password">
+                Password
+                <label
+                  class="inline-text text-danger"
+                  *ngIf="validationError.password"
+                  >{{ validationError.password }}
+                </label>
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                pInputText
+                placeholder="Enter password"
+                [(ngModel)]="signupObj.password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="h6" for="ConfirmPassword">
+                Confirm Password
+                <label
+                  class="inline-text text-danger"
+                  *ngIf="validationError.confirmPassword"
+                  >{{ validationError.confirmPassword }}
+                </label>
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="confirmPassword"
+                pInputText
+                placeholder="Enter password"
+                [(ngModel)]="signupObj.confirmPassword"
+                name="password"
+                required
+              />
+              <label
+                class="inline-text text-danger"
+                *ngIf="validationError.passwordMismatch"
+                >{{ validationError.passwordMismatch }}
+              </label>
+            </div>
+
+            <button class="btn btn-dark btn-block mt-5">Sign Up</button>
+          </form>
+          <div class="mt-5 text-center">
+            <a style="font-weight: bold" [routerLink]="['/login']"
+              >Already have an Account? Login Here.</a
+            >
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -13,75 +13,71 @@ import { NotAllowedComponent } from './utility/not-allowed/not-allowed/not-allow
 
 const routes: Routes = [
   {
-    path:'login',
-    component:LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'',
-    pathMatch:'full',
-    redirectTo:'login'    
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'login',
   },
   {
-    path:'signup',
-    component:SignupComponent
+    path: 'signup',
+    component: SignupComponent,
   },
   {
-    path:'loggedIn/student',
-    children:[
+    path: 'loggedIn/student',
+    children: [
       {
-        path:"",
-        pathMatch:"full",
-        component:HomeStudentComponent,
+        path: '',
+        pathMatch: 'full',
+        component: HomeStudentComponent,
       },
       {
-        path:"attempt/:id",
-        component:AttemptComponent
-      }
+        path: 'attempt/:id',
+        component: AttemptComponent,
+      },
     ],
-    data:{type:"Student"}
-    ,
-    canActivate: [AuthGuard,RoleGuard]
+    data: { type: 'Student' },
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
-    path:'loggedIn/teacher',
-    children:[
+    path: 'loggedIn/teacher',
+    children: [
       {
-        path:'quiz',
-        children:[
+        path: 'quiz',
+        children: [
           {
-            path:'add',
-            component:AddQuizComponent,
+            path: 'add',
+            component: AddQuizComponent,
           },
           {
-            path:'update/:id',
-            component:AddQuizComponent
-          }
-        ]
+            path: 'update/:id',
+            component: AddQuizComponent,
+          },
+        ],
       },
       {
-        path:'',
-        pathMatch:'full',
-        component:HomeTeacherComponent,
+        path: '',
+        pathMatch: 'full',
+        component: HomeTeacherComponent,
       },
       {
-        path:'students',
-        component:StudentsComponent
-      }
-
+        path: 'students',
+        component: StudentsComponent,
+      },
     ],
-    data:{type:"Teacher"}
-    ,canActivate: [AuthGuard,RoleGuard]
+    data: { type: 'Teacher' },
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
-    path:'not-allowed',
-    component:NotAllowedComponent
-  }
-  
-
+    path: 'not-allowed',
+    component: NotAllowedComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

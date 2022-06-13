@@ -1,34 +1,57 @@
-    <nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
-        <button class="navbar-brand btn btn-success btn-lg "  [routerLink]="['/loggedIn/'+type.toLowerCase()]">QUIZ APP | {{type}} Portal</button>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul *ngIf="type=='Teacher'" class="navbar-nav" id="myLinks" >
-            <li class="nav-item ">
-              <button class="btn btn-primary mr-2 "  [routerLink]="['/loggedIn/teacher']">Quizzes </button>
-            </li>
-            <li class="nav-item">
-              <button class="btn btn-primary"  [routerLink]="['students']">Students</button>
-            </li>
-            
-          </ul>
-                    
-          <div class="dropdown ml-auto">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa fa-user-circle" aria-hidden="true"></i>
+<nav class="navbar navbar-expand-sm sticky-top navbar-dark bg-dark">
+  <button
+    class="navbar-brand btn btn-success btn-lg"
+    [routerLink]="['/loggedIn/' + type.toLowerCase()]"
+  >
+    QUIZ APP | {{ type }} Portal
+  </button>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-            <span class="caret"></span></button>
-            <ul class="dropdown-menu bg-info" style="margin-left: -100px;">
-              <li class="btn">
-                <a  class="btn text-white" (click)="logout()">
-                    <i class="fa fa-sign-out" aria-hidden="true" ></i>
-                Logout
-                </a>
-            </li>
-              
-            </ul>
-          </div>
-        </div>
-      </nav>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul *ngIf="type == 'Teacher'" class="navbar-nav" id="myLinks">
+      <li class="nav-item">
+        <button
+          class="btn btn-primary mr-2"
+          [routerLink]="['/loggedIn/teacher']"
+        >
+          Quizzes
+        </button>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-primary" [routerLink]="['students']">
+          Students
+        </button>
+      </li>
+    </ul>
+
+    <div class="dropdown ml-auto">
+      <button
+        class="btn btn-primary dropdown-toggle"
+        type="button"
+        data-toggle="dropdown"
+      >
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu bg-info" style="margin-left: -100px">
+        <li class="btn">
+          <a class="btn text-white" (click)="logout()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

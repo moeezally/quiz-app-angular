@@ -8,7 +8,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './auth/auth.service';
-import { AppService } from "./app.service";
+import { AppService } from './app.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeStudentComponent } from './home-student/home-student.component';
 import { HomeTeacherComponent } from './home-teacher/home-teacher.component';
@@ -24,7 +24,6 @@ import { AttemptComponent } from './home-student/quizzes/attempt/attempt.compone
 import { AuthGuard } from './auth/auth.guard';
 import { RoleGuard } from './auth/role.guard';
 import { NotAllowedComponent } from './utility/not-allowed/not-allowed/not-allowed.component';
-
 
 @NgModule({
   declarations: [
@@ -47,7 +46,7 @@ import { NotAllowedComponent } from './utility/not-allowed/not-allowed/not-allow
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthService,
@@ -56,8 +55,8 @@ import { NotAllowedComponent } from './utility/not-allowed/not-allowed/not-allow
     UserService,
     AttemptService,
     AuthGuard,
-    RoleGuard
+    RoleGuard,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

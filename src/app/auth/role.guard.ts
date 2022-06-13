@@ -4,14 +4,14 @@ import { AppService } from '../app.service';
 
 @Injectable()
 export class RoleGuard implements CanActivate {
-  constructor(private appService: AppService, private router:Router) { }
+  constructor(private appService: AppService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot) {
-    if (this.appService.getToken().type==route.data['type']) {
+    if (this.appService.getToken().type == route.data['type']) {
       return true;
     }
 
-    this.router.navigate(['/not-allowed'])
+    this.router.navigate(['/not-allowed']);
     return false;
   }
 }

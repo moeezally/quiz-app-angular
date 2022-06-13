@@ -1,60 +1,72 @@
-<div class="container-fluid" >
-	<div class="row">
-		<div class="col-md-12">			
-			<div class="row p-5 mt-5">
-				<div class="col-md-4">
-				</div>
-				<div class="col-md-4 p-5 border rounded mt-5" style="background: rgb(255,255,255,0.8);">
-                    <h4 class="text-center mb-5">
-						LOGIN
-					</h4>
-                    <p for="signupSucces" class="text-center text-primary" style="font-size: large; font-weight:bold;" *ngIf="signupSuccess">Sign Up {{signupSuccess}}</p>
-					<form role="form" (ngSubmit)="login()" #f="ngForm">
-						<div class="form-group mb-4">
-							 
-							<label class="h6" for="email">
-								Email address
-							</label>
-							<input 
-                                pInputText 
-                                type="email" 
-                                class="form-control" 
-                                id="email"
-                                [(ngModel)]="loginObj.email"
-                                name="email"
-                                placeholder="Enter email address"
-                                required />
-						</div>
-						<div class="form-group">
-							 
-							<label class="h6" for="password">
-								Password
-							</label>
-							<input 
-                                type="password" 
-                                class="form-control" 
-                                id="password"
-                                pInputText
-                                placeholder="Enter password"
-                                [(ngModel)]="loginObj.password"
-                                name="password"
-                                required
-                                 />
-						</div>
-                        <p class="text-danger mb-0" style="font-weight: bold;" *ngIf="loginError">{{loginError}}</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row p-5 mt-5">
+        <div class="col-md-4"></div>
+        <div
+          class="col-md-4 p-5 border rounded mt-5"
+          style="background: rgb(255, 255, 255, 0.8)"
+        >
+          <h4 class="text-center mb-5">LOGIN</h4>
+          <p
+            for="signupSucces"
+            class="text-center text-primary"
+            style="font-size: large; font-weight: bold"
+            *ngIf="signupSuccess"
+          >
+            Sign Up {{ signupSuccess }}
+          </p>
+          <form role="form" (ngSubmit)="login()" #f="ngForm">
+            <div class="form-group mb-4">
+              <label class="h6" for="email"> Email address </label>
+              <input
+                pInputText
+                type="email"
+                class="form-control"
+                id="email"
+                [(ngModel)]="loginObj.email"
+                name="email"
+                placeholder="Enter email address"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="h6" for="password"> Password </label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                pInputText
+                placeholder="Enter password"
+                [(ngModel)]="loginObj.password"
+                name="password"
+                required
+              />
+            </div>
+            <p
+              class="text-danger mb-0"
+              style="font-weight: bold"
+              *ngIf="loginError"
+            >
+              {{ loginError }}
+            </p>
 
-						<button  class="btn btn-dark btn-block mt-5" style="font-weight: bold;font-size:large;">
-							Login
-						</button>
-					</form>
+            <button
+              class="btn btn-dark btn-block mt-5"
+              style="font-weight: bold; font-size: large"
+            >
+              Login
+            </button>
+          </form>
 
-                    <div class="mt-4 text-center">
-                        <a style="font-weight:bold;" [routerLink]="['/signup']">Don't have an Account? Signup Here.</a>
-                    </div>
-				</div>
-				<div class="col-md-4">
-				</div>
-			</div>
-		</div>
-	</div>
+          <div class="mt-4 text-center">
+            <a style="font-weight: bold" [routerLink]="['/signup']"
+              >Don't have an Account? Signup Here.</a
+            >
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
 </div>

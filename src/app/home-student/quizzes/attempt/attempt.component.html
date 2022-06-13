@@ -15,20 +15,27 @@
         <div class="col-md-3"></div>
       </div>
       <form role="form" class="form" #f="ngForm">
-        <div class="form-group mb-4 p-5" style="background: rgba(80, 80, 80, 0.7);">
-          <label class="h5 text-white" for="quiz_name">Quiz: {{quiz.name}} </label>         
-         
+        <div
+          class="form-group mb-4 p-5"
+          style="background: rgba(80, 80, 80, 0.7)"
+        >
+          <label class="h5 text-white" for="quiz_name"
+            >Quiz: {{ quiz.name }}
+          </label>
         </div>
-        <p class="text-danger">*NOTE: Please read questions carefully. Attempt all questions. </p>       
-        <div id="myDiv">
-
-        </div>
+        <p class="text-danger">
+          *NOTE: Please read questions carefully. Attempt all questions.
+        </p>
+        <div id="myDiv"></div>
       </form>
-      
-      <button class="btn btn-success btn-block mt-5 p-3 text-white" (click)="validate()">Submit Quiz</button>
 
+      <button
+        class="btn btn-success btn-block mt-5 p-3 text-white"
+        (click)="validate()"
+      >
+        Submit Quiz
+      </button>
     </div>
     <div class="col-md-2"></div>
   </div>
-  
 </div>
